@@ -5,12 +5,12 @@ namespace AlibabaCloud\CCC\V20170705;
 use AlibabaCloud\Rpc;
 
 /**
- * Api GetContactIdentifyByOutBoundTaskId
+ * Api GetJobFileUploadUrl
  *
  * @method string getInstanceId()
- * @method string getOutboundTaskId()
+ * @method string getFileName()
  */
-class GetContactIdentifyByOutBoundTaskId extends Rpc
+class GetJobFileUploadUrl extends Rpc
 {
     public $product = 'CCC';
 
@@ -34,14 +34,14 @@ class GetContactIdentifyByOutBoundTaskId extends Rpc
     }
 
     /**
-     * @param string $outboundTaskId
+     * @param string $fileName
      *
      * @return $this
      */
-    public function withOutboundTaskId($outboundTaskId)
+    public function withFileName($fileName)
     {
-        $this->data['OutboundTaskId'] = $outboundTaskId;
-        $this->options['query']['OutboundTaskId'] = $outboundTaskId;
+        $this->data['FileName'] = $fileName;
+        $this->options['query']['FileName'] = $fileName;
 
         return $this;
     }

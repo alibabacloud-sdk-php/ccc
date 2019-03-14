@@ -5,15 +5,15 @@ namespace AlibabaCloud\CCC\V20170705;
 use AlibabaCloud\Rpc;
 
 /**
- * Api ModifyPhoneNumber
+ * Api AddBulkPhoneNumbers
  *
  * @method string getContactFlowId()
  * @method string getInstanceId()
- * @method string getPhoneNumberId()
  * @method string getUsage()
  * @method array getSkillGroupId()
+ * @method array getPhoneNumber()
  */
-class ModifyPhoneNumber extends Rpc
+class AddBulkPhoneNumbers extends Rpc
 {
     public $product = 'CCC';
 
@@ -50,19 +50,6 @@ class ModifyPhoneNumber extends Rpc
     }
 
     /**
-     * @param string $phoneNumberId
-     *
-     * @return $this
-     */
-    public function withPhoneNumberId($phoneNumberId)
-    {
-        $this->data['PhoneNumberId'] = $phoneNumberId;
-        $this->options['query']['PhoneNumberId'] = $phoneNumberId;
-
-        return $this;
-    }
-
-    /**
      * @param string $usage
      *
      * @return $this
@@ -85,6 +72,21 @@ class ModifyPhoneNumber extends Rpc
         $this->data['SkillGroupId'] = $skillGroupId;
         foreach ($skillGroupId as $i => $iValue) {
             $this->options['query']['SkillGroupId.' . ($i + 1)] = $iValue;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param array $phoneNumber
+     *
+     * @return $this
+     */
+    public function withPhoneNumber(array $phoneNumber)
+    {
+        $this->data['PhoneNumber'] = $phoneNumber;
+        foreach ($phoneNumber as $i => $iValue) {
+            $this->options['query']['PhoneNumber.' . ($i + 1)] = $iValue;
         }
 
         return $this;

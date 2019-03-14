@@ -5,16 +5,17 @@ namespace AlibabaCloud\CCC\V20170705;
 use AlibabaCloud\Rpc;
 
 /**
- * Api CreateScenario
+ * Api CreatePredictiveJobGroup
  *
  * @method string getInstanceId()
- * @method array getSurveysJson()
+ * @method string getSkillGroupId()
  * @method string getStrategyJson()
  * @method string getName()
  * @method string getDescription()
- * @method string getType()
+ * @method array getJobsJson()
+ * @method string getJobFilePath()
  */
-class CreateScenario extends Rpc
+class CreatePredictiveJobGroup extends Rpc
 {
     public $product = 'CCC';
 
@@ -38,16 +39,14 @@ class CreateScenario extends Rpc
     }
 
     /**
-     * @param array $surveysJson
+     * @param string $skillGroupId
      *
      * @return $this
      */
-    public function withSurveysJson(array $surveysJson)
+    public function withSkillGroupId($skillGroupId)
     {
-        $this->data['SurveysJson'] = $surveysJson;
-        foreach ($surveysJson as $i => $iValue) {
-            $this->options['query']['SurveysJson.' . ($i + 1)] = $iValue;
-        }
+        $this->data['SkillGroupId'] = $skillGroupId;
+        $this->options['query']['SkillGroupId'] = $skillGroupId;
 
         return $this;
     }
@@ -92,14 +91,29 @@ class CreateScenario extends Rpc
     }
 
     /**
-     * @param string $type
+     * @param array $jobsJson
      *
      * @return $this
      */
-    public function withType($type)
+    public function withJobsJson(array $jobsJson)
     {
-        $this->data['Type'] = $type;
-        $this->options['query']['Type'] = $type;
+        $this->data['JobsJson'] = $jobsJson;
+        foreach ($jobsJson as $i => $iValue) {
+            $this->options['query']['JobsJson.' . ($i + 1)] = $iValue;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param string $jobFilePath
+     *
+     * @return $this
+     */
+    public function withJobFilePath($jobFilePath)
+    {
+        $this->data['JobFilePath'] = $jobFilePath;
+        $this->options['query']['JobFilePath'] = $jobFilePath;
 
         return $this;
     }
