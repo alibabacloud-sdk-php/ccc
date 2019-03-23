@@ -2,7 +2,152 @@
 
 namespace AlibabaCloud\CCC\V20170705;
 
+use AlibabaCloud\ApiResolverTrait;
 use AlibabaCloud\Rpc;
+
+/**
+ * Resolve Api based on the method name.
+ *
+ * @method GetContactInfoByOutboundTaskId getContactInfoByOutboundTaskId(array $options = [])
+ * @method ListVoiceAppraise listVoiceAppraise(array $options = [])
+ * @method CreateVoiceAppraise createVoiceAppraise(array $options = [])
+ * @method ListAgentEvents listAgentEvents(array $options = [])
+ * @method PickOutboundNumbersByTags pickOutboundNumbersByTags(array $options = [])
+ * @method GetJobFileUploadUrl getJobFileUploadUrl(array $options = [])
+ * @method CreatePredictiveJobGroup createPredictiveJobGroup(array $options = [])
+ * @method AddBulkPhoneNumbers addBulkPhoneNumbers(array $options = [])
+ * @method CreateCabInstance createCabInstance(array $options = [])
+ * @method ListIvrTrackingDetail listIvrTrackingDetail(array $options = [])
+ * @method PickOutboundNumbers pickOutboundNumbers(array $options = [])
+ * @method QueryRedialIndicator queryRedialIndicator(array $options = [])
+ * @method GetAgentState getAgentState(array $options = [])
+ * @method AddNumberToSkillGroup addNumberToSkillGroup(array $options = [])
+ * @method RemoveNumberFromSkillGroup removeNumberFromSkillGroup(array $options = [])
+ * @method ListRecordingOfDualTrack listRecordingOfDualTrack(array $options = [])
+ * @method RemoveUsersFromSkillGroup removeUsersFromSkillGroup(array $options = [])
+ * @method ListCallMeasureSummaryReports listCallMeasureSummaryReports(array $options = [])
+ * @method GetCallMeasureSummaryReport getCallMeasureSummaryReport(array $options = [])
+ * @method CallOnlinePrivacyNumber callOnlinePrivacyNumber(array $options = [])
+ * @method ModifyPrivacyNumberCallDetail modifyPrivacyNumberCallDetail(array $options = [])
+ * @method ListPrivacyNumberCallDetails listPrivacyNumberCallDetails(array $options = [])
+ * @method DeleteMedia deleteMedia(array $options = [])
+ * @method ModifyMedia modifyMedia(array $options = [])
+ * @method PreModifyMedia preModifyMedia(array $options = [])
+ * @method ListMedias listMedias(array $options = [])
+ * @method CreateMedia createMedia(array $options = [])
+ * @method PreCreateMedia preCreateMedia(array $options = [])
+ * @method CreateCCCPostOrder createCCCPostOrder(array $options = [])
+ * @method FindUsers findUsers(array $options = [])
+ * @method ModifyNotificationConfig modifyNotificationConfig(array $options = [])
+ * @method ModifySkillGroupOfUser modifySkillGroupOfUser(array $options = [])
+ * @method ListOutboundPhoneNumberOfUser listOutboundPhoneNumberOfUser(array $options = [])
+ * @method GetInstanceState getInstanceState(array $options = [])
+ * @method SimpleDial simpleDial(array $options = [])
+ * @method CreateInstance createInstance(array $options = [])
+ * @method DeleteInstance deleteInstance(array $options = [])
+ * @method GetInstance getInstance(array $options = [])
+ * @method CreateContactFlow createContactFlow(array $options = [])
+ * @method CommitContactFlowVersionModification commitContactFlowVersionModification(array $options = [])
+ * @method PublishContactFlowVersion publishContactFlowVersion(array $options = [])
+ * @method GetPredictiveJob getPredictiveJob(array $options = [])
+ * @method GetContactIdentifyByOutBoundTaskId getContactIdentifyByOutBoundTaskId(array $options = [])
+ * @method ListSkillGroupStates listSkillGroupStates(array $options = [])
+ * @method GetInstanceSummaryReportSinceMidnight getInstanceSummaryReportSinceMidnight(array $options = [])
+ * @method GetInstanceSummaryReportByInterval getInstanceSummaryReportByInterval(array $options = [])
+ * @method GetInstanceSummaryReport getInstanceSummaryReport(array $options = [])
+ * @method ListSkillGroupSummaryReportsByInterval listSkillGroupSummaryReportsByInterval(array $options = [])
+ * @method ListSkillGroupSummaryReportsSinceMidnight listSkillGroupSummaryReportsSinceMidnight(array $options = [])
+ * @method ListAgentSummaryReportsSinceMidnight listAgentSummaryReportsSinceMidnight(array $options = [])
+ * @method ListSkillGroupSummaryReports listSkillGroupSummaryReports(array $options = [])
+ * @method ListAgentSummaryReportsByInterval listAgentSummaryReportsByInterval(array $options = [])
+ * @method ListAgentSummaryReports listAgentSummaryReports(array $options = [])
+ * @method ListAgentStates listAgentStates(array $options = [])
+ * @method GetSmsConfig getSmsConfig(array $options = [])
+ * @method ListRecentCallRecords listRecentCallRecords(array $options = [])
+ * @method SendPredefinedShortMessage sendPredefinedShortMessage(array $options = [])
+ * @method LaunchShortMessageAppraise launchShortMessageAppraise(array $options = [])
+ * @method GetConversationDetailByContactId getConversationDetailByContactId(array $options = [])
+ * @method DeleteJobGroup deleteJobGroup(array $options = [])
+ * @method ModifyScenario modifyScenario(array $options = [])
+ * @method ListPredictiveJobStatus listPredictiveJobStatus(array $options = [])
+ * @method CreatePredictiveJobs createPredictiveJobs(array $options = [])
+ * @method CancelPredictiveJobs cancelPredictiveJobs(array $options = [])
+ * @method GetJobTemplateDownloadParams getJobTemplateDownloadParams(array $options = [])
+ * @method GetScenario getScenario(array $options = [])
+ * @method PublishSurvey publishSurvey(array $options = [])
+ * @method ModifySurvey modifySurvey(array $options = [])
+ * @method ListSurveys listSurveys(array $options = [])
+ * @method GetSurvey getSurvey(array $options = [])
+ * @method DeleteSurvey deleteSurvey(array $options = [])
+ * @method CreateSurvey createSurvey(array $options = [])
+ * @method ListBasicStatisticsReportSubItems listBasicStatisticsReportSubItems(array $options = [])
+ * @method ListUnreachableContacts listUnreachableContacts(array $options = [])
+ * @method DownloadUnreachableContacts downloadUnreachableContacts(array $options = [])
+ * @method DownloadOriginalStatisticsReport downloadOriginalStatisticsReport(array $options = [])
+ * @method ListPrivilegesOfUser listPrivilegesOfUser(array $options = [])
+ * @method GenerateAgentStatisticReport generateAgentStatisticReport(array $options = [])
+ * @method StartBack2BackCall startBack2BackCall(array $options = [])
+ * @method TwoPartiesCall twoPartiesCall(array $options = [])
+ * @method GetAgentData getAgentData(array $options = [])
+ * @method GetJobGroup getJobGroup(array $options = [])
+ * @method ListScenarioTemplates listScenarioTemplates(array $options = [])
+ * @method CreateScenarioFromTemplate createScenarioFromTemplate(array $options = [])
+ * @method SuspendJobs suspendJobs(array $options = [])
+ * @method SubmitBatchJobs submitBatchJobs(array $options = [])
+ * @method ResumeJobs resumeJobs(array $options = [])
+ * @method ListJobsByGroup listJobsByGroup(array $options = [])
+ * @method CreateBatchJobs createBatchJobs(array $options = [])
+ * @method CancelJobs cancelJobs(array $options = [])
+ * @method AssignJobs assignJobs(array $options = [])
+ * @method GetJobDataUploadParams getJobDataUploadParams(array $options = [])
+ * @method LaunchAppraise launchAppraise(array $options = [])
+ * @method GetTaskList getTaskList(array $options = [])
+ * @method GetJobList getJobList(array $options = [])
+ * @method GetConversationList getConversationList(array $options = [])
+ * @method GetJob getJob(array $options = [])
+ * @method ListRealTimeAgent listRealTimeAgent(array $options = [])
+ * @method ListConfig listConfig(array $options = [])
+ * @method ListScenarios listScenarios(array $options = [])
+ * @method CreateScenario createScenario(array $options = [])
+ * @method PickLocalNumber pickLocalNumber(array $options = [])
+ * @method GetNumberRegionInfo getNumberRegionInfo(array $options = [])
+ * @method Dialogue dialogue(array $options = [])
+ * @method CreateJobGroup createJobGroup(array $options = [])
+ * @method ListJobGroups listJobGroups(array $options = [])
+ * @method GetJobStatusByCallId getJobStatusByCallId(array $options = [])
+ * @method ListJobStatus listJobStatus(array $options = [])
+ * @method StartJob startJob(array $options = [])
+ * @method ListRecordingsByContactId listRecordingsByContactId(array $options = [])
+ * @method DownloadRecording downloadRecording(array $options = [])
+ * @method ListCallDetailRecords listCallDetailRecords(array $options = [])
+ * @method ListRecordings listRecordings(array $options = [])
+ * @method RefreshToken refreshToken(array $options = [])
+ * @method RemovePhoneNumber removePhoneNumber(array $options = [])
+ * @method ModifyUser modifyUser(array $options = [])
+ * @method ModifySkillGroup modifySkillGroup(array $options = [])
+ * @method ModifyPhoneNumber modifyPhoneNumber(array $options = [])
+ * @method RemoveUsers removeUsers(array $options = [])
+ * @method ListUsersOfSkillGroup listUsersOfSkillGroup(array $options = [])
+ * @method RequestLoginInfo requestLoginInfo(array $options = [])
+ * @method ListUsers listUsers(array $options = [])
+ * @method ListSkillGroupsOfUser listSkillGroupsOfUser(array $options = [])
+ * @method ListSkillGroups listSkillGroups(array $options = [])
+ * @method ListRoles listRoles(array $options = [])
+ * @method ListPhoneNumbers listPhoneNumbers(array $options = [])
+ * @method ListContactFlows listContactFlows(array $options = [])
+ * @method GetUser getUser(array $options = [])
+ * @method GetServiceExtensions getServiceExtensions(array $options = [])
+ * @method GetConfig getConfig(array $options = [])
+ * @method DeleteSkillGroup deleteSkillGroup(array $options = [])
+ * @method CreateUser createUser(array $options = [])
+ * @method CreateSkillGroup createSkillGroup(array $options = [])
+ * @method AssignUsers assignUsers(array $options = [])
+ * @method AddPhoneNumber addPhoneNumber(array $options = [])
+ */
+class CCCApiResolver
+{
+    use ApiResolverTrait;
+}
 
 class V20170705Rpc extends Rpc
 {
@@ -17,6 +162,40 @@ class V20170705Rpc extends Rpc
 
     /** @var string */
     public $serviceCode = 'ccc';
+}
+
+/**
+ * @method string getInstanceId()
+ * @method $this withInstanceId($value)
+ * @method string getOutboundTaskId()
+ * @method $this withOutboundTaskId($value)
+ * @method string getSkillGroupId()
+ * @method $this withSkillGroupId($value)
+ */
+class GetContactInfoByOutboundTaskId extends V20170705Rpc
+{
+}
+
+/**
+ * @method string getInstanceId()
+ * @method $this withInstanceId($value)
+ */
+class ListVoiceAppraise extends V20170705Rpc
+{
+}
+
+/**
+ * @method string getInstanceId()
+ * @method $this withInstanceId($value)
+ * @method string getContactFlowVersionId()
+ * @method $this withContactFlowVersionId($value)
+ * @method string getIsAppraise()
+ * @method $this withIsAppraise($value)
+ * @method string getContent()
+ * @method $this withContent($value)
+ */
+class CreateVoiceAppraise extends V20170705Rpc
+{
 }
 
 /**
@@ -54,14 +233,14 @@ class PickOutboundNumbersByTags extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $prioritizedCallerArea
      *
      * @return $this
      */
-    public function withPrioritizedCallerArea(array $value)
+    public function withPrioritizedCallerArea(array $prioritizedCallerArea)
     {
-        $this->data['PrioritizedCallerArea'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['PrioritizedCallerArea'] = $prioritizedCallerArea;
+        foreach ($prioritizedCallerArea as $i => $iValue) {
             $this->options['query']['PrioritizedCallerArea.' . ($i + 1)] = $iValue;
         }
 
@@ -69,14 +248,14 @@ class PickOutboundNumbersByTags extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $serviceTag
      *
      * @return $this
      */
-    public function withServiceTag(array $value)
+    public function withServiceTag(array $serviceTag)
     {
-        $this->data['ServiceTag'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ServiceTag'] = $serviceTag;
+        foreach ($serviceTag as $i => $iValue) {
             $this->options['query']['ServiceTag.' . ($i + 1)] = $iValue;
         }
 
@@ -84,14 +263,14 @@ class PickOutboundNumbersByTags extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $skillGroupId
      *
      * @return $this
      */
-    public function withSkillGroupId(array $value)
+    public function withSkillGroupId(array $skillGroupId)
     {
-        $this->data['SkillGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillGroupId'] = $skillGroupId;
+        foreach ($skillGroupId as $i => $iValue) {
             $this->options['query']['SkillGroupId.' . ($i + 1)] = $iValue;
         }
 
@@ -128,14 +307,14 @@ class CreatePredictiveJobGroup extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $jobsJson
      *
      * @return $this
      */
-    public function withJobsJson(array $value)
+    public function withJobsJson(array $jobsJson)
     {
-        $this->data['JobsJson'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobsJson'] = $jobsJson;
+        foreach ($jobsJson as $i => $iValue) {
             $this->options['query']['JobsJson.' . ($i + 1)] = $iValue;
         }
 
@@ -157,14 +336,14 @@ class AddBulkPhoneNumbers extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $skillGroupId
      *
      * @return $this
      */
-    public function withSkillGroupId(array $value)
+    public function withSkillGroupId(array $skillGroupId)
     {
-        $this->data['SkillGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillGroupId'] = $skillGroupId;
+        foreach ($skillGroupId as $i => $iValue) {
             $this->options['query']['SkillGroupId.' . ($i + 1)] = $iValue;
         }
 
@@ -172,75 +351,15 @@ class AddBulkPhoneNumbers extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $phoneNumber
      *
      * @return $this
      */
-    public function withPhoneNumber(array $value)
+    public function withPhoneNumber(array $phoneNumber)
     {
-        $this->data['PhoneNumber'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['PhoneNumber'] = $phoneNumber;
+        foreach ($phoneNumber as $i => $iValue) {
             $this->options['query']['PhoneNumber.' . ($i + 1)] = $iValue;
-        }
-
-        return $this;
-    }
-}
-
-/**
- * @method array getPrioritizedCallerArea()
- * @method string getInstanceId()
- * @method $this withInstanceId($value)
- * @method array getServiceTag()
- * @method array getSkillGroupId()
- * @method string getCount()
- * @method $this withCount($value)
- * @method string getCalleeNumber()
- * @method $this withCalleeNumber($value)
- */
-class PickNumbersByTags extends V20170705Rpc
-{
-
-    /**
-     * @param array $value
-     *
-     * @return $this
-     */
-    public function withPrioritizedCallerArea(array $value)
-    {
-        $this->data['PrioritizedCallerArea'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['PrioritizedCallerArea.' . ($i + 1)] = $iValue;
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param array $value
-     *
-     * @return $this
-     */
-    public function withServiceTag(array $value)
-    {
-        $this->data['ServiceTag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['ServiceTag.' . ($i + 1)] = $iValue;
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param array $value
-     *
-     * @return $this
-     */
-    public function withSkillGroupId(array $value)
-    {
-        $this->data['SkillGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['SkillGroupId.' . ($i + 1)] = $iValue;
         }
 
         return $this;
@@ -296,14 +415,14 @@ class PickOutboundNumbers extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $candidateNumber
      *
      * @return $this
      */
-    public function withCandidateNumber(array $value)
+    public function withCandidateNumber(array $candidateNumber)
     {
-        $this->data['CandidateNumber'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['CandidateNumber'] = $candidateNumber;
+        foreach ($candidateNumber as $i => $iValue) {
             $this->options['query']['CandidateNumber.' . ($i + 1)] = $iValue;
         }
 
@@ -394,14 +513,14 @@ class RemoveUsersFromSkillGroup extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $userId
      *
      * @return $this
      */
-    public function withUserId(array $value)
+    public function withUserId(array $userId)
     {
-        $this->data['UserId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['UserId'] = $userId;
+        foreach ($userId as $i => $iValue) {
             $this->options['query']['UserId.' . ($i + 1)] = $iValue;
         }
 
@@ -626,17 +745,17 @@ class ModifyNotificationConfig extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $subscriptions
      *
      * @return $this
      */
-    public function withSubscriptions(array $value)
+    public function withSubscriptions(array $subscriptions)
     {
-        $this->data['Subscriptions'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Subscriptions.' . ($i + 1) . '.DisplayName'] = $value[$i]['DisplayName'];
-            $this->options['query']['Subscriptions.' . ($i + 1) . '.Name'] = $value[$i]['Name'];
-            $this->options['query']['Subscriptions.' . ($i + 1) . '.Selected'] = $value[$i]['Selected'];
+        $this->data['Subscriptions'] = $subscriptions;
+        foreach ($subscriptions as $depth1 => $depth1Value) {
+            $this->options['query']['Subscriptions.' . ($depth1 + 1) . '.DisplayName'] = $depth1Value['DisplayName'];
+            $this->options['query']['Subscriptions.' . ($depth1 + 1) . '.Name'] = $depth1Value['Name'];
+            $this->options['query']['Subscriptions.' . ($depth1 + 1) . '.Selected'] = $depth1Value['Selected'];
         }
 
         return $this;
@@ -656,14 +775,14 @@ class ModifySkillGroupOfUser extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $skillLevel
      *
      * @return $this
      */
-    public function withSkillLevel(array $value)
+    public function withSkillLevel(array $skillLevel)
     {
-        $this->data['SkillLevel'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillLevel'] = $skillLevel;
+        foreach ($skillLevel as $i => $iValue) {
             $this->options['query']['SkillLevel.' . ($i + 1)] = $iValue;
         }
 
@@ -671,14 +790,14 @@ class ModifySkillGroupOfUser extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $roleId
      *
      * @return $this
      */
-    public function withRoleId(array $value)
+    public function withRoleId(array $roleId)
     {
-        $this->data['RoleId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['RoleId'] = $roleId;
+        foreach ($roleId as $i => $iValue) {
             $this->options['query']['RoleId.' . ($i + 1)] = $iValue;
         }
 
@@ -686,14 +805,14 @@ class ModifySkillGroupOfUser extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $skillGroupId
      *
      * @return $this
      */
-    public function withSkillGroupId(array $value)
+    public function withSkillGroupId(array $skillGroupId)
     {
-        $this->data['SkillGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillGroupId'] = $skillGroupId;
+        foreach ($skillGroupId as $i => $iValue) {
             $this->options['query']['SkillGroupId.' . ($i + 1)] = $iValue;
         }
 
@@ -754,14 +873,14 @@ class CreateInstance extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $userObject
      *
      * @return $this
      */
-    public function withUserObject(array $value)
+    public function withUserObject(array $userObject)
     {
-        $this->data['UserObject'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['UserObject'] = $userObject;
+        foreach ($userObject as $i => $iValue) {
             $this->options['query']['UserObject.' . ($i + 1)] = $iValue;
         }
 
@@ -769,14 +888,14 @@ class CreateInstance extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $phoneNumber
      *
      * @return $this
      */
-    public function withPhoneNumber(array $value)
+    public function withPhoneNumber(array $phoneNumber)
     {
-        $this->data['PhoneNumber'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['PhoneNumber'] = $phoneNumber;
+        foreach ($phoneNumber as $i => $iValue) {
             $this->options['query']['PhoneNumber.' . ($i + 1)] = $iValue;
         }
 
@@ -784,14 +903,14 @@ class CreateInstance extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $adminRamId
      *
      * @return $this
      */
-    public function withAdminRamId(array $value)
+    public function withAdminRamId(array $adminRamId)
     {
-        $this->data['AdminRamId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['AdminRamId'] = $adminRamId;
+        foreach ($adminRamId as $i => $iValue) {
             $this->options['query']['AdminRamId.' . ($i + 1)] = $iValue;
         }
 
@@ -1074,14 +1193,14 @@ class GetSmsConfig extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $scenario
      *
      * @return $this
      */
-    public function withScenario(array $value)
+    public function withScenario(array $scenario)
     {
-        $this->data['Scenario'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['Scenario'] = $scenario;
+        foreach ($scenario as $i => $iValue) {
             $this->options['query']['Scenario.' . ($i + 1)] = $iValue;
         }
 
@@ -1214,14 +1333,14 @@ class CreatePredictiveJobs extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $jobsJson
      *
      * @return $this
      */
-    public function withJobsJson(array $value)
+    public function withJobsJson(array $jobsJson)
     {
-        $this->data['JobsJson'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobsJson'] = $jobsJson;
+        foreach ($jobsJson as $i => $iValue) {
             $this->options['query']['JobsJson.' . ($i + 1)] = $iValue;
         }
 
@@ -1242,14 +1361,14 @@ class CancelPredictiveJobs extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $jobId
      *
      * @return $this
      */
-    public function withJobId(array $value)
+    public function withJobId(array $jobId)
     {
-        $this->data['JobId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobId'] = $jobId;
+        foreach ($jobId as $i => $iValue) {
             $this->options['query']['JobId.' . ($i + 1)] = $iValue;
         }
 
@@ -1551,14 +1670,14 @@ class SuspendJobs extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $jobId
      *
      * @return $this
      */
-    public function withJobId(array $value)
+    public function withJobId(array $jobId)
     {
-        $this->data['JobId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobId'] = $jobId;
+        foreach ($jobId as $i => $iValue) {
             $this->options['query']['JobId.' . ($i + 1)] = $iValue;
         }
 
@@ -1566,14 +1685,14 @@ class SuspendJobs extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $jobReferenceId
      *
      * @return $this
      */
-    public function withJobReferenceId(array $value)
+    public function withJobReferenceId(array $jobReferenceId)
     {
-        $this->data['JobReferenceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobReferenceId'] = $jobReferenceId;
+        foreach ($jobReferenceId as $i => $iValue) {
             $this->options['query']['JobReferenceId.' . ($i + 1)] = $iValue;
         }
 
@@ -1607,14 +1726,14 @@ class ResumeJobs extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $jobId
      *
      * @return $this
      */
-    public function withJobId(array $value)
+    public function withJobId(array $jobId)
     {
-        $this->data['JobId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobId'] = $jobId;
+        foreach ($jobId as $i => $iValue) {
             $this->options['query']['JobId.' . ($i + 1)] = $iValue;
         }
 
@@ -1622,14 +1741,14 @@ class ResumeJobs extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $jobReferenceId
      *
      * @return $this
      */
-    public function withJobReferenceId(array $value)
+    public function withJobReferenceId(array $jobReferenceId)
     {
-        $this->data['JobReferenceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobReferenceId'] = $jobReferenceId;
+        foreach ($jobReferenceId as $i => $iValue) {
             $this->options['query']['JobReferenceId.' . ($i + 1)] = $iValue;
         }
 
@@ -1676,14 +1795,14 @@ class CreateBatchJobs extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $callingNumber
      *
      * @return $this
      */
-    public function withCallingNumber(array $value)
+    public function withCallingNumber(array $callingNumber)
     {
-        $this->data['CallingNumber'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['CallingNumber'] = $callingNumber;
+        foreach ($callingNumber as $i => $iValue) {
             $this->options['query']['CallingNumber.' . ($i + 1)] = $iValue;
         }
 
@@ -1707,14 +1826,14 @@ class CancelJobs extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $jobId
      *
      * @return $this
      */
-    public function withJobId(array $value)
+    public function withJobId(array $jobId)
     {
-        $this->data['JobId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobId'] = $jobId;
+        foreach ($jobId as $i => $iValue) {
             $this->options['query']['JobId.' . ($i + 1)] = $iValue;
         }
 
@@ -1722,14 +1841,14 @@ class CancelJobs extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $jobReferenceId
      *
      * @return $this
      */
-    public function withJobReferenceId(array $value)
+    public function withJobReferenceId(array $jobReferenceId)
     {
-        $this->data['JobReferenceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobReferenceId'] = $jobReferenceId;
+        foreach ($jobReferenceId as $i => $iValue) {
             $this->options['query']['JobReferenceId.' . ($i + 1)] = $iValue;
         }
 
@@ -1753,14 +1872,14 @@ class AssignJobs extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $callingNumber
      *
      * @return $this
      */
-    public function withCallingNumber(array $value)
+    public function withCallingNumber(array $callingNumber)
     {
-        $this->data['CallingNumber'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['CallingNumber'] = $callingNumber;
+        foreach ($callingNumber as $i => $iValue) {
             $this->options['query']['CallingNumber.' . ($i + 1)] = $iValue;
         }
 
@@ -1768,14 +1887,14 @@ class AssignJobs extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $jobsJson
      *
      * @return $this
      */
-    public function withJobsJson(array $value)
+    public function withJobsJson(array $jobsJson)
     {
-        $this->data['JobsJson'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['JobsJson'] = $jobsJson;
+        foreach ($jobsJson as $i => $iValue) {
             $this->options['query']['JobsJson.' . ($i + 1)] = $iValue;
         }
 
@@ -1868,14 +1987,14 @@ class ListConfig extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $configItem
      *
      * @return $this
      */
-    public function withConfigItem(array $value)
+    public function withConfigItem(array $configItem)
     {
-        $this->data['ConfigItem'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ConfigItem'] = $configItem;
+        foreach ($configItem as $i => $iValue) {
             $this->options['query']['ConfigItem.' . ($i + 1)] = $iValue;
         }
 
@@ -1908,14 +2027,14 @@ class CreateScenario extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $surveysJson
      *
      * @return $this
      */
-    public function withSurveysJson(array $value)
+    public function withSurveysJson(array $surveysJson)
     {
-        $this->data['SurveysJson'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SurveysJson'] = $surveysJson;
+        foreach ($surveysJson as $i => $iValue) {
             $this->options['query']['SurveysJson.' . ($i + 1)] = $iValue;
         }
 
@@ -1934,14 +2053,14 @@ class PickLocalNumber extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $candidateNumber
      *
      * @return $this
      */
-    public function withCandidateNumber(array $value)
+    public function withCandidateNumber(array $candidateNumber)
     {
-        $this->data['CandidateNumber'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['CandidateNumber'] = $candidateNumber;
+        foreach ($candidateNumber as $i => $iValue) {
             $this->options['query']['CandidateNumber.' . ($i + 1)] = $iValue;
         }
 
@@ -2002,14 +2121,14 @@ class CreateJobGroup extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $callingNumber
      *
      * @return $this
      */
-    public function withCallingNumber(array $value)
+    public function withCallingNumber(array $callingNumber)
     {
-        $this->data['CallingNumber'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['CallingNumber'] = $callingNumber;
+        foreach ($callingNumber as $i => $iValue) {
             $this->options['query']['CallingNumber.' . ($i + 1)] = $iValue;
         }
 
@@ -2086,14 +2205,14 @@ class StartJob extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $callingNumber
      *
      * @return $this
      */
-    public function withCallingNumber(array $value)
+    public function withCallingNumber(array $callingNumber)
     {
-        $this->data['CallingNumber'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['CallingNumber'] = $callingNumber;
+        foreach ($callingNumber as $i => $iValue) {
             $this->options['query']['CallingNumber.' . ($i + 1)] = $iValue;
         }
 
@@ -2214,14 +2333,14 @@ class ModifyUser extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $skillLevel
      *
      * @return $this
      */
-    public function withSkillLevel(array $value)
+    public function withSkillLevel(array $skillLevel)
     {
-        $this->data['SkillLevel'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillLevel'] = $skillLevel;
+        foreach ($skillLevel as $i => $iValue) {
             $this->options['query']['SkillLevel.' . ($i + 1)] = $iValue;
         }
 
@@ -2229,14 +2348,14 @@ class ModifyUser extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $roleId
      *
      * @return $this
      */
-    public function withRoleId(array $value)
+    public function withRoleId(array $roleId)
     {
-        $this->data['RoleId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['RoleId'] = $roleId;
+        foreach ($roleId as $i => $iValue) {
             $this->options['query']['RoleId.' . ($i + 1)] = $iValue;
         }
 
@@ -2244,14 +2363,14 @@ class ModifyUser extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $skillGroupId
      *
      * @return $this
      */
-    public function withSkillGroupId(array $value)
+    public function withSkillGroupId(array $skillGroupId)
     {
-        $this->data['SkillGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillGroupId'] = $skillGroupId;
+        foreach ($skillGroupId as $i => $iValue) {
             $this->options['query']['SkillGroupId.' . ($i + 1)] = $iValue;
         }
 
@@ -2278,14 +2397,14 @@ class ModifySkillGroup extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $skillLevel
      *
      * @return $this
      */
-    public function withSkillLevel(array $value)
+    public function withSkillLevel(array $skillLevel)
     {
-        $this->data['SkillLevel'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillLevel'] = $skillLevel;
+        foreach ($skillLevel as $i => $iValue) {
             $this->options['query']['SkillLevel.' . ($i + 1)] = $iValue;
         }
 
@@ -2293,14 +2412,14 @@ class ModifySkillGroup extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $outboundPhoneNumberId
      *
      * @return $this
      */
-    public function withOutboundPhoneNumberId(array $value)
+    public function withOutboundPhoneNumberId(array $outboundPhoneNumberId)
     {
-        $this->data['OutboundPhoneNumberId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['OutboundPhoneNumberId'] = $outboundPhoneNumberId;
+        foreach ($outboundPhoneNumberId as $i => $iValue) {
             $this->options['query']['OutboundPhoneNumberId.' . ($i + 1)] = $iValue;
         }
 
@@ -2308,14 +2427,14 @@ class ModifySkillGroup extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $userId
      *
      * @return $this
      */
-    public function withUserId(array $value)
+    public function withUserId(array $userId)
     {
-        $this->data['UserId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['UserId'] = $userId;
+        foreach ($userId as $i => $iValue) {
             $this->options['query']['UserId.' . ($i + 1)] = $iValue;
         }
 
@@ -2338,14 +2457,14 @@ class ModifyPhoneNumber extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $skillGroupId
      *
      * @return $this
      */
-    public function withSkillGroupId(array $value)
+    public function withSkillGroupId(array $skillGroupId)
     {
-        $this->data['SkillGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillGroupId'] = $skillGroupId;
+        foreach ($skillGroupId as $i => $iValue) {
             $this->options['query']['SkillGroupId.' . ($i + 1)] = $iValue;
         }
 
@@ -2362,14 +2481,14 @@ class RemoveUsers extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $userId
      *
      * @return $this
      */
-    public function withUserId(array $value)
+    public function withUserId(array $userId)
     {
-        $this->data['UserId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['UserId'] = $userId;
+        foreach ($userId as $i => $iValue) {
             $this->options['query']['UserId.' . ($i + 1)] = $iValue;
         }
 
@@ -2520,14 +2639,14 @@ class CreateUser extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $skillLevel
      *
      * @return $this
      */
-    public function withSkillLevel(array $value)
+    public function withSkillLevel(array $skillLevel)
     {
-        $this->data['SkillLevel'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillLevel'] = $skillLevel;
+        foreach ($skillLevel as $i => $iValue) {
             $this->options['query']['SkillLevel.' . ($i + 1)] = $iValue;
         }
 
@@ -2535,14 +2654,14 @@ class CreateUser extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $roleId
      *
      * @return $this
      */
-    public function withRoleId(array $value)
+    public function withRoleId(array $roleId)
     {
-        $this->data['RoleId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['RoleId'] = $roleId;
+        foreach ($roleId as $i => $iValue) {
             $this->options['query']['RoleId.' . ($i + 1)] = $iValue;
         }
 
@@ -2550,14 +2669,14 @@ class CreateUser extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $skillGroupId
      *
      * @return $this
      */
-    public function withSkillGroupId(array $value)
+    public function withSkillGroupId(array $skillGroupId)
     {
-        $this->data['SkillGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillGroupId'] = $skillGroupId;
+        foreach ($skillGroupId as $i => $iValue) {
             $this->options['query']['SkillGroupId.' . ($i + 1)] = $iValue;
         }
 
@@ -2580,14 +2699,14 @@ class CreateSkillGroup extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $skillLevel
      *
      * @return $this
      */
-    public function withSkillLevel(array $value)
+    public function withSkillLevel(array $skillLevel)
     {
-        $this->data['SkillLevel'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillLevel'] = $skillLevel;
+        foreach ($skillLevel as $i => $iValue) {
             $this->options['query']['SkillLevel.' . ($i + 1)] = $iValue;
         }
 
@@ -2595,14 +2714,14 @@ class CreateSkillGroup extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $outboundPhoneNumberId
      *
      * @return $this
      */
-    public function withOutboundPhoneNumberId(array $value)
+    public function withOutboundPhoneNumberId(array $outboundPhoneNumberId)
     {
-        $this->data['OutboundPhoneNumberId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['OutboundPhoneNumberId'] = $outboundPhoneNumberId;
+        foreach ($outboundPhoneNumberId as $i => $iValue) {
             $this->options['query']['OutboundPhoneNumberId.' . ($i + 1)] = $iValue;
         }
 
@@ -2610,14 +2729,14 @@ class CreateSkillGroup extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $userId
      *
      * @return $this
      */
-    public function withUserId(array $value)
+    public function withUserId(array $userId)
     {
-        $this->data['UserId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['UserId'] = $userId;
+        foreach ($userId as $i => $iValue) {
             $this->options['query']['UserId.' . ($i + 1)] = $iValue;
         }
 
@@ -2637,14 +2756,14 @@ class AssignUsers extends V20170705Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $userRamId
      *
      * @return $this
      */
-    public function withUserRamId(array $value)
+    public function withUserRamId(array $userRamId)
     {
-        $this->data['UserRamId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['UserRamId'] = $userRamId;
+        foreach ($userRamId as $i => $iValue) {
             $this->options['query']['UserRamId.' . ($i + 1)] = $iValue;
         }
 
@@ -2652,14 +2771,14 @@ class AssignUsers extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $skillLevel
      *
      * @return $this
      */
-    public function withSkillLevel(array $value)
+    public function withSkillLevel(array $skillLevel)
     {
-        $this->data['SkillLevel'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillLevel'] = $skillLevel;
+        foreach ($skillLevel as $i => $iValue) {
             $this->options['query']['SkillLevel.' . ($i + 1)] = $iValue;
         }
 
@@ -2667,14 +2786,14 @@ class AssignUsers extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $roleId
      *
      * @return $this
      */
-    public function withRoleId(array $value)
+    public function withRoleId(array $roleId)
     {
-        $this->data['RoleId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['RoleId'] = $roleId;
+        foreach ($roleId as $i => $iValue) {
             $this->options['query']['RoleId.' . ($i + 1)] = $iValue;
         }
 
@@ -2682,14 +2801,14 @@ class AssignUsers extends V20170705Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $skillGroupId
      *
      * @return $this
      */
-    public function withSkillGroupId(array $value)
+    public function withSkillGroupId(array $skillGroupId)
     {
-        $this->data['SkillGroupId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['SkillGroupId'] = $skillGroupId;
+        foreach ($skillGroupId as $i => $iValue) {
             $this->options['query']['SkillGroupId.' . ($i + 1)] = $iValue;
         }
 
