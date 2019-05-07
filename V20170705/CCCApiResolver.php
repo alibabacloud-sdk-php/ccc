@@ -8,6 +8,10 @@ use AlibabaCloud\Rpc;
 /**
  * Resolve Api based on the method name.
  *
+ * @method ListInstancesOfUser listInstancesOfUser(array $options = [])
+ * @method PublishPredictiveJobGroup publishPredictiveJobGroup(array $options = [])
+ * @method CreatePredictiveJobGroup createPredictiveJobGroup(array $options = [])
+ * @method ModifySkillGroupOutboundNumbers modifySkillGroupOutboundNumbers(array $options = [])
  * @method ListCallEventDetailByContactId listCallEventDetailByContactId(array $options = [])
  * @method DialEx dialEx(array $options = [])
  * @method ListPredictiveJobGroups listPredictiveJobGroups(array $options = [])
@@ -18,7 +22,6 @@ use AlibabaCloud\Rpc;
  * @method ListAgentEvents listAgentEvents(array $options = [])
  * @method PickOutboundNumbersByTags pickOutboundNumbersByTags(array $options = [])
  * @method GetJobFileUploadUrl getJobFileUploadUrl(array $options = [])
- * @method CreatePredictiveJobGroup createPredictiveJobGroup(array $options = [])
  * @method AddBulkPhoneNumbers addBulkPhoneNumbers(array $options = [])
  * @method CreateCabInstance createCabInstance(array $options = [])
  * @method ListIvrTrackingDetail listIvrTrackingDetail(array $options = [])
@@ -166,6 +169,88 @@ class V20170705Rpc extends Rpc
 
     /** @var string */
     public $serviceCode = 'ccc';
+}
+
+class ListInstancesOfUser extends V20170705Rpc
+{
+}
+
+/**
+ * @method string getInstanceId()
+ * @method $this withInstanceId($value)
+ * @method string getSkillGroupId()
+ * @method $this withSkillGroupId($value)
+ * @method string getJobGroupId()
+ * @method $this withJobGroupId($value)
+ */
+class PublishPredictiveJobGroup extends V20170705Rpc
+{
+}
+
+/**
+ * @method string getInstanceId()
+ * @method $this withInstanceId($value)
+ * @method string getIsDraft()
+ * @method $this withIsDraft($value)
+ * @method string getSkillGroupId()
+ * @method $this withSkillGroupId($value)
+ * @method string getStrategyJson()
+ * @method $this withStrategyJson($value)
+ * @method string getName()
+ * @method $this withName($value)
+ * @method string getDescription()
+ * @method $this withDescription($value)
+ * @method string getTimingSchedule()
+ * @method $this withTimingSchedule($value)
+ * @method array getJobsJson()
+ * @method string getJobFilePath()
+ * @method $this withJobFilePath($value)
+ */
+class CreatePredictiveJobGroup extends V20170705Rpc
+{
+
+    /**
+     * @param array $jobsJson
+     *
+     * @return $this
+     */
+    public function withJobsJson(array $jobsJson)
+    {
+        $this->data['JobsJson'] = $jobsJson;
+        foreach ($jobsJson as $i => $iValue) {
+            $this->options['form_params']['JobsJson.' . ($i + 1)] = $iValue;
+        }
+
+        return $this;
+    }
+}
+
+/**
+ * @method string getInstanceId()
+ * @method $this withInstanceId($value)
+ * @method array getOutboundPhoneNumberId()
+ * @method string getSkillGroupId()
+ * @method $this withSkillGroupId($value)
+ * @method string getOperationType()
+ * @method $this withOperationType($value)
+ */
+class ModifySkillGroupOutboundNumbers extends V20170705Rpc
+{
+
+    /**
+     * @param array $outboundPhoneNumberId
+     *
+     * @return $this
+     */
+    public function withOutboundPhoneNumberId(array $outboundPhoneNumberId)
+    {
+        $this->data['OutboundPhoneNumberId'] = $outboundPhoneNumberId;
+        foreach ($outboundPhoneNumberId as $i => $iValue) {
+            $this->options['query']['OutboundPhoneNumberId.' . ($i + 1)] = $iValue;
+        }
+
+        return $this;
+    }
 }
 
 /**
@@ -386,40 +471,6 @@ class PickOutboundNumbersByTags extends V20170705Rpc
  */
 class GetJobFileUploadUrl extends V20170705Rpc
 {
-}
-
-/**
- * @method string getInstanceId()
- * @method $this withInstanceId($value)
- * @method string getSkillGroupId()
- * @method $this withSkillGroupId($value)
- * @method string getStrategyJson()
- * @method $this withStrategyJson($value)
- * @method string getName()
- * @method $this withName($value)
- * @method string getDescription()
- * @method $this withDescription($value)
- * @method array getJobsJson()
- * @method string getJobFilePath()
- * @method $this withJobFilePath($value)
- */
-class CreatePredictiveJobGroup extends V20170705Rpc
-{
-
-    /**
-     * @param array $jobsJson
-     *
-     * @return $this
-     */
-    public function withJobsJson(array $jobsJson)
-    {
-        $this->data['JobsJson'] = $jobsJson;
-        foreach ($jobsJson as $i => $iValue) {
-            $this->options['form_params']['JobsJson.' . ($i + 1)] = $iValue;
-        }
-
-        return $this;
-    }
 }
 
 /**
@@ -2237,6 +2288,8 @@ class GetNumberRegionInfo extends V20170705Rpc
  * @method $this withInstanceId($value)
  * @method string getCalledNumber()
  * @method $this withCalledNumber($value)
+ * @method string getInstanceOwnerId()
+ * @method $this withInstanceOwnerId($value)
  * @method string getActionKey()
  * @method $this withActionKey($value)
  * @method string getActionParams()
